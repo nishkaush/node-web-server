@@ -22,12 +22,12 @@ app.use((req, res, next) => {
 });
 
 
-app.use((req, res, next) => {
-    res.render("maintenance.hbs", {
-        pageHeading: "You have reached the end of the internet!",
-        description: "Just kidding! We are doing maintenance here."
-    });
-});
+// app.use((req, res, next) => {
+//     res.render("maintenance.hbs", {
+//         pageHeading: "You have reached the end of the internet!",
+//         description: "Just kidding! We are doing maintenance here."
+//     });
+// });
 
 app.use(express.static(__dirname + "/public"));
 
@@ -90,6 +90,13 @@ app.get("/about", (req, res) => {
 app.get("/bad", (req, res) => {
     res.send({
         errorMessage: "Unable to Connect to Shit!"
+    });
+});
+
+
+app.get("/projects", (req, res) => {
+    res.render("projects.hbs", {
+        pageHeading: "Check out my projects Here!"
     });
 });
 
